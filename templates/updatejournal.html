@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="../static/css/journal.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+      integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
+      crossorigin="anonymous"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  
+    <title>My Diary App</title>
+    <style>
+      /* body {
+        font-family: "Lato", sans-serif;
+        background-color: rgb(249, 240, 255);
+      } */
+      
+      .sidenav {
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+  /* background-image: linear-gradient(rgb(140, 42, 231), rgba(156, 31, 214, 0.9)); */
+
+        background-color:rgb(118, 196, 241);
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+      
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 15px;
+        color: #0f0d0d;
+        display: block;
+      }
+      
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+      
+      .main {
+        margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+      }
+      
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
+      </style>
+    <style>
+      .body {
+        background-image: url(../static/images/journal\ bg1.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+        
+          </style>
+  </head>
+  <body style="background-color: rgb(0, 47, 255);">
+    
+    <header><h1 class="title">Update Journal</h1></header>
+
+    <!-- Journal Entry Section -->
+    <section class="section journal-section">
+      {% for row in journal %}
+
+
+
+      
+      <div class="container" id="modalupdatejournal">
+        
+
+        
+        <div class="container-row container-row-journal">
+         
+          <div class="container-item container-item-journal">
+
+            
+         
+            <form id="" action="" method="post">
+              <label for="entry-title" class="journal-label">Change Title</label>
+				<input type="hidden"  name="journalid" value="{{row.0}}">
+				<input type="hidden"  name="id" value="{{row.1}}">
+              <input
+                type="text"
+                name="entrytitle"
+                id="entrytitle"
+                value="{{row.2}}"
+                class="entry-text-title"
+                placeholder="Name of entry ✏️"
+              />
+              <label for="entry-date" class="journal-label">Change Date</label>
+              <input
+                type="date"
+                name="entrydate"
+                id="entry-date"
+                value="{{row.3}}"
+                class="entry-text-title"
+                placeholder="Select date"
+              />
+              <label for="entry" class="journal-label">Change Entry</label>
+              <input
+              type="text"
+                name="dailyentry"
+                id="dailyentry"
+                value="{{row.4}}"
+                class="entry-text-box"
+              ></input>
+              <button class="btn-main entry-submit-btn" type="submit">Update</button>
+            </form>
+          </div>
+    
+    {% endfor %}
+
+  </div>
+  <script src="../static/js/journal.js"></script>
+</body>
+</html>
+
+
+  </body>
+</html>

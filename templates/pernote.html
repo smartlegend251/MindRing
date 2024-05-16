@@ -1,0 +1,271 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/pernotestyle.css" />
+    <link rel="stylesheet" href="../static/css/navbar.css" />
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+        background-color: rgb(249, 240, 255);
+      }
+      
+      .sidenav {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color:#795df5;
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+      
+.edit {
+        color: #3df110;
+    }
+.delete {
+        color: #ff0505;
+    }
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #fdfdfd;
+        display: block;
+      }
+      
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+      
+      .main {
+        margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+      }
+      
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
+      </style>
+  </head>
+  <body>
+      <div class="top-heading">
+        <h4>  
+        Personal Notes</h4></div>
+      <div id="addnoteModal" class="modal fade">
+      <div class="modal-dialog">
+          <div class="modal-content">
+                  <div class="modal-header">
+                      <div class="popup-container-closed">
+                        <div class="form-style" >
+      <form action="{{url_for('insertpernote')}}" method="post">
+      <div>
+          <label for="pernotecon" style="font-size: x-large;">Take a Note : </label>
+         <br><br> <textarea style="font-family:sans-serif; font-size: large;" cols="90" rows="10" name="pernotecon"  id= "pernotecon"  placeholder="Type your Note" required></textarea>
+        </div>
+        <br>
+      <div>    
+        <!-- <label  for="color" style="font-size:  x-large; margin: 29px;"></label>   -->
+     <!-- <option style="background-color: rgb(105, 103, 252); color: rgb(255, 249, 249);padding: 8px; cursor: pointer; "value="101">Default theme</option>     -->
+     <!-- <option style="background-color: #ffdddd;color: rgb(8, 6, 6);padding: 7px; cursor: pointer; "value="0">Red</option> -->
+     <!-- <option style=" background-color: #ddffdd; color: rgb(8, 6, 6);cursor: pointer; padding: 7px;"value="1">Orange</option> -->
+     <!-- <option style="  background-color: #e7f3fe; color: rgb(0, 0, 0);padding: 7px;cursor: pointer; "value="2">Green</option> -->
+     <!-- <option style="background-color: rgb(109, 109, 245); color: white;padding: 7px;cursor: pointer; "value="3">Blue</option> -->
+     <!-- <option style="background-color: rgb(224, 52, 80); color: rgb(83, 71, 71);cursor: pointer; padding: 7px;"value="4">Pink (Loved once)</option> -->
+     <!-- <option style="background-color: black; color: white;padding: 7px;cursor: pointer; "value="5">Black (Incident)</option> -->
+     <!-- <option style="background-color: grey; color: white;padding: 7px;cursor: pointer; "value="6">Grey (task)</option> -->
+  
+    </select>
+      </div>
+      <input type="hidden" name="pernoteid" >
+      <input type="hidden" name="id" >
+      <div class="addNoteBtn" style="margin-left: 90px;"><button style="cursor: pointer;">Add Note</button></div>
+  </form>
+      <div class="closeBtn"  style="margin-left: 90px;" ><button style="cursor: pointer;">Close</button></div>
+  </div>
+  </div>
+</div>
+</div>  
+  <div class="container"> 
+    
+    
+    <div class="items">
+      <div class="sidenav">
+      <nav>
+        <div class="sidebar">
+          <div class="sidebar-content">
+            <ul class="lists">
+              <li class="list">
+                <a href="#" class="nav-link">
+                  <i class="bx bx-home-alt icon"></i>
+                  <span class="link" style="font-size: larger;">MindRing</span>
+                  <br><br>
+                  <span class="link" style="font-size: larger;"></span>
+                </a>
+              </li>
+              <br>
+              <li class="list">
+                <a href="/homepage" class="nav-link">
+                  <i class="bx bx-home-alt icon"></i>
+                  <span class="link">Home</span>
+                </a>
+              </li>
+              <br>
+              <li class="list">
+                <a href="/journal" class="nav-link">
+                  <i class="bx bx-bell icon"></i>
+                  <span class="link">Journal</span>
+                </a>
+              </li>
+              <br>
+              <li class="list">
+                <a href="/todo" class="nav-link">
+                  <i class="bx bx-bell icon"></i>
+                  <span class="link">To-Do List</span>
+                </a>
+              </li>
+              
+              <hr>
+              <br>
+              <br>
+              <li class="list">
+                <a href="/homepage#professionalspace" class="nav-link">
+                  <i class="bx bx-bell icon"></i>
+                  <span class="link">Professional Space</span>
+                </a><br>
+              </li>
+              <li class="list">
+                <a href="/homepage#healthspace" class="nav-link">
+                  <i class="bx bx-bell icon"></i>
+                  <span class="link">health Space</span>
+                </a><br>
+              </li>
+<br><br><br><br><br><br><br><br><br><hr>             
+              <div class="bottom-cotent">
+              
+              <li class="list">
+                <a href="/logout" class="nav-link">
+                  <i class="bx bx-log-out icon"></i>
+                  <span class="link">Logout</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="/feedback" class="nav-link">
+                  <i class="bx bx-log-out icon"></i>
+                  <span class="link">Feedback</span>
+                </a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </nav>
+      </div>
+
+        <!-- <div class="new-button">
+          <button><ion-icon class="newBtn" name="add-outline"></ion-icon>
+            <br><br><br>
+            <h1 style="font-size: medium">
+              Add Note </h1>
+            </button>
+      </div> -->
+
+      <div class='pernotes' >
+          {% for row in pernotes %} <br>
+          
+          
+          
+          <!-- <div class="sticky-note" > -->
+            
+           
+          <!-- </div> -->
+
+
+
+
+          <div class="sticky-note" onclick="toggleNoteContent(this)" id="myDiv"  
+           {% if row.3 == 0 %} style="background-color: rgb(94, 96, 248); border-left: 10px solid rgb(9, 5, 248);"{% endif %} 
+           {% if row.3 == 1 %} style= "background-color: #ddffdd; border-left: 10px solid #04AA6D;" {% endif %} 
+           {% if row.3 == 2 %} style="background-color: #e7f3fe; border-left: 10x solid #2196F3;"    {% endif %}
+           {% if row.3 == 3 %} style="background-color: #ffffcc; border-left: 10px solid #ffeb3b" {% endif %}
+           {% if row.3 == 6 %} style="background-color:grey"    {% endif %}
+          {% if row.3 == 5 %} style="background-color:black; color:white"    {% endif %}
+          {% if row.3 == 101 %} style="background-color: rgb(105, 103, 252); border-left: 10px solid rgb(34, 12, 233); color: rgb(255, 255, 255); ;"    {% endif %} 
+
+      
+          >
+            <br>{{row.2}}</p>
+      <br>
+      <!-- <a href="/updatepernote/{{row.0}}" ><i class="fa fa-edit" style="font-size:20px; color:#000000"></i></a>
+      <a href="/deletepernote/{{row.0}}" ><i class="fa fa-trash-o" style="font-size:20px; color: #080508"></i></a> -->
+      <div class="note-overlay">
+        
+        <div class="note-content">
+          
+          {{row.2}}
+          <br>
+        
+        </div>
+        <div style="display: inline; "> 
+          <a href="/updatepernote/{{row.0}}" class="edit" data-toggle="modal" data-target="#modaleditpernote{{row.0}}"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+          <a href="/deletepernote/{{row.0}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete" onclick="return confirm('Are you sure to Delete?')">&#xE872;</i></a>
+        </div>
+      </div>  
+    </div>  
+       {% endfor %}
+
+      </div>
+<script>
+  function toggleNoteContent(note) {
+        note.classList.toggle('active');
+      }
+      const stickyNote = document.querySelector('.sticky-note');
+// s
+function changeColor(color) {
+stickyNote.style.background = color;
+}
+
+function setColor() {
+  var color = $("#colorInput").val();
+  $("#stickyNote").css("background-color", color);
+
+
+  $(".nav-toggle").click(function (e) {
+        e.preventDefault();
+        $("html").toggleClass("openNav");
+        $(".nav-toggle").toggleClass("active");
+    });
+}
+  </script>
+
+
+
+  </div>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="../static/js/pronote.js"></script>
+  
+  <div id="testcontent">
+    <form action="{{url_for('insertpernote')}}" method="post">
+    <input type="text" name="pernotecon" id="input-box" placeholder="Type your message...">
+    <input name="val" id="color" type="hidden" style="padding: 7px; padding-left: 50px;" style="cursor: pointer;">
+
+    <button id="submit-btn">Add Note</button>
+  </form>
+  </div>
+</body>
+</html>

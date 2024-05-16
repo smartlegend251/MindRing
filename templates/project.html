@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MindRing Projects</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../static/css/navbar.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+    body {
+        color: #191a0a;
+		background: #fefdff;
+		font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-size: 16   px;
+	}
+	.table-responsive {
+        margin: 0px 0;
+
+    }
+	.table-wrapper {
+		min-width: 1050px;
+        background: rgb(254, 253, 255);
+        padding: 20px 25px;
+		border-radius: 3px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+	.table-title {        
+		padding-bottom: 15px;
+		background: #fffefe;
+		color: #ffffff;
+		padding: 16px 30px;
+		margin: -20px -25px 10px;
+		border-radius: 3px 3px 0 0;
+    }
+    .table-title h2 {
+		margin: 5px 0 0;
+		font-size: 27px;
+        text-align: center;
+	}
+	.table-title .btn-group {
+		float: right;
+	}
+	.table-title .btn {
+		color: rgb(255, 251, 251);
+		float: right;
+		font-size: 13px;
+		border: none;
+		min-width: 50px;
+		border-radius: 2px;
+		border: none;
+		outline: none !important;
+		margin-left: 10px;
+	}
+	.table-title .btn i {
+		float: left;
+		font-size: 21px;
+		margin-right: 5px;
+	}
+	.table-title .btn span {
+		float: left;
+		margin-top: 2px;
+	}
+    table.table tr th, table.table tr td {
+        border-color: #000000;
+		padding: 12px 15px;
+		vertical-align: middle;
+    }
+	table.table tr th:first-child {
+		width: 60px;
+	}
+	table.table tr th:last-child {
+		width: 100px;
+	}
+    table.table-striped tbody tr:nth-of-type(odd) {
+    	background-color: #ffffff;
+	}
+	table.table-striped.table-hover tbody tr:hover {
+		background: #f5f5f5;
+	}
+    table.table th i {
+        font-size: 13px;
+        margin: 0 5px;
+        cursor: pointer;
+    }	
+    table.table td:last-child i {
+		opacity: 0.9;
+		font-size: 22px;
+        margin: 0 5px;
+    }
+	table.table td a {
+		font-weight: bold;
+		color: #6f1bdb;
+		display: inline-block;
+		text-decoration: none;
+		outline: none !important;
+	}
+	table.table td a:hover {
+		color: #2196F3;
+	}
+	table.table td a.edit {
+        color: #790ec0;
+    }
+    table.table td a.delete {
+        color: #8b01b4;
+    }
+    table.table td i {
+        font-size: 19px;
+    }
+	table.table .avatar {
+		border-radius: 50%;
+		vertical-align: middle;
+		margin-right: 10px;
+	}
+    .pagination {
+        float: right;
+        margin: 0 0 5px;
+    }
+    .pagination li a {
+        border: none;
+        font-size: 13px;
+        min-width: 30px;
+        min-height: 30px;
+        color: #999;
+        margin: 0 2px;
+        line-height: 30px;
+        border-radius: 2px !important;
+        text-align: center;
+        padding: 0 6px;
+    }
+    .pagination li a:hover {
+        color: #666;
+    }	
+    .pagination li.active a, .pagination li.active a.page-link {
+        background: #03A9F4;
+    }
+    .pagination li.active a:hover {        
+        background: #0397d6;
+    }
+	.pagination li.disabled i {
+        color: #ccc;
+    }
+    .pagination li i {
+        font-size: 16px;
+        padding-top: 6px
+    }
+    .hint-text {
+        float: left;
+        margin-top: 10px;
+        font-size: 13px;
+    }    
+	/* Custom checkbox */
+	.custom-checkbox {
+		position: relative;
+	}
+	.custom-checkbox input[type="checkbox"] {    
+		opacity: 0;
+		position: absolute;
+		margin: 5px 0 0 3px;
+		z-index: 9;
+	}
+	.custom-checkbox label:before{
+		width: 18px;
+		height: 18px;
+	}
+	.custom-checkbox label:before {
+		content: '';
+		margin-right: 10px;
+		display: inline-block;
+		vertical-align: text-top;
+		background: white;
+		border: 1px solid #bbb;
+		border-radius: 2px;
+		box-sizing: border-box;
+		z-index: 2;
+	}
+	.custom-checkbox input[type="checkbox"]:checked + label:after {
+		content: '';
+		position: absolute;
+		left: 6px;
+		top: 3px;
+		width: 6px;
+		height: 11px;
+		border: solid #000;
+		border-width: 0 3px 3px 0;
+		transform: inherit;
+		z-index: 3;
+		transform: rotateZ(45deg);
+	}
+	.custom-checkbox input[type="checkbox"]:checked + label:before {
+		border-color: #03A9F4;
+		background: #03A9F4;
+	}
+	.custom-checkbox input[type="checkbox"]:checked + label:after {
+		border-color: #fff;
+	}
+	.custom-checkbox input[type="checkbox"]:disabled + label:before {
+		color: #b8b8b8;
+		cursor: auto;
+		box-shadow: none;
+		background: #ddd;
+	}
+	/* Modal styles */
+	.modal .modal-dialog {
+		max-width: 400px;
+	}
+	.modal .modal-header, .modal .modal-body, .modal .modal-footer {
+		padding: 20px 30px;
+	}
+	.modal .modal-content {
+		border-radius: 3px;
+	}
+	.modal .modal-footer {
+		background: #ecf0f1;
+		border-radius: 0 0 3px 3px;
+	}
+    .modal .modal-title {
+        display: inline-block;
+    }
+	.modal .form-control {
+		border-radius: 2px;
+		box-shadow: none;
+		border-color: #dddddd;
+	}
+	.modal textarea.form-control {
+		resize: vertical;
+	}
+	.modal .btn {
+		border-radius: 2px;
+		min-width: 100px;
+	}	
+	.modal form label {
+		font-weight: normal;
+	}	
+</style>
+<script>
+$(document).ready(function(){
+	// Activate tooltip
+	$('[data-toggle="tooltip"]').tooltip();
+	
+	// Select/Deselect checkboxes
+	var checkbox = $('table tbody input[type="checkbox"]');
+	$("#selectAll").click(function(){
+		if(this.checked){
+			checkbox.each(function(){
+				this.checked = true;                        
+			});
+		} else{
+			checkbox.each(function(){
+				this.checked = false;                        
+			});
+		} 
+	});
+	checkbox.click(function(){
+		if(!this.checked){
+			$("#selectAll").prop("checked", false);
+		}
+	});
+});
+</script>
+</head>
+<body>
+    <div class="w3-sidebar  w3-bar-block" style="width:16%; background-color: #d414ca; color: rgb(255, 255, 255);">
+		<h3 class="w3-bar-item" style="font-size: xx-large;"><b>MindRing</b></h3><hr>
+		<br>
+		<a href="/homepage" class="w3-bar-item w3-button" style="font-size: x-large;">Home</a>
+		<a href="/pronote" class="w3-bar-item w3-button" style="font-size: x-large;">Work Notes</a>
+		<hr>
+		<a href="/homepage#professionalspace" class="w3-bar-item w3-button" style="font-size: x-large;">Personal Space</a>
+		<a href="/homepage#healthspace" class="w3-bar-item w3-button" style="font-size: x-large;">Health Space</a>
+		<br><br><br><br><br><br><hr>
+		<a href="/logout" class="w3-bar-item w3-button" style="font-size: x-large;">Logout</a>
+		<a href="/feedback" class="w3-bar-item w3-button" style="font-size: x-large;">Feedback</a>
+
+	</div>
+
+<div style="margin-left:13%">
+
+		<div class="w3-container" style="background-color: #d414ca; color: rgb(255, 255, 255);">
+			<h1 style="text-align: center;">Projects </h1>
+		</div>
+	<br>
+	
+	
+	<div class="container">
+		
+	
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col-xs-6">
+							<h2 style="text-align: start;"><b>Your Projects</b></h2>
+						</div>
+						<div class="col-xs-6">
+							<a href="#addprojectModal" class="btn btn-success" data-toggle="modal" style="background-color: #8b01b4;">
+								<i class="material-icons">&#xE147;</i> 
+								<span>Add New Project</span></a>
+					
+						</div>
+					</div>
+				</div>
+			
+			
+			
+			
+
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<!-- <th>
+								<span class="custom-checkbox">
+									<input type="checkbox" id="selectAll">
+									<label for="selectAll"></label>
+								</span>
+							</th> -->
+							<th >Project ID</th>
+							<th>Project Name</th>
+							<!-- <th>Email</th> -->
+							<th>Your Name</th>
+							<th>Designation</th>
+							<th>Tasks</th>
+							<th>Priority</th>
+							<th>Status</th>
+							<th>Due Date</th> 
+                            <th>Team</th>
+                            <th>Actions</th>
+						</tr>
+						{% for row in projects %}
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{row.0}}</td>
+							<td>{{row.2}}</td>
+							<td>{{row.3}}</td>
+							<td>{{row.4}}</td>
+							<td>{{row.5}}</td>
+                            <td>{{row.6}}</td>
+                            <td>{{row.7}}</td>
+                            <td>{{row.8}}</td>
+                            <td>{{row.9}}</td>
+                            <td>
+								<a href="/updateproject/{{row.0}}" class="edit" data-toggle="modal" data-target="#modaleditproject{{row.0}}"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+								<a href="/deleteproject/{{row.0}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete" onclick="return confirm('Are you sure to Delete?')">&#xE872;</i></a>
+							</td>
+						</tr>
+	<!-- Edit Modal HTML -->
+	<div id="modaleditproject{{row.0}}" class="modal fade" role="dailog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form action="{{url_for('updateproject')}}" method="POST">
+					<div class="modal-header">						
+						<h4 class="modal-title">Edit Project</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">		
+						<div class="form-group">
+							<label>Project Name</label>
+							<input type="hidden"  name="projectid" value="{{row.0}}">
+							<!-- <input type="hidden"  name="id" value="{{row.1}}"> -->
+							<input type="text" class="form-control" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || event.charCode === 32"  name="projectname" value="{{row.2}}" required>
+						</div>
+						
+						<div class="form-group">
+							<label>Your Name</label>
+							<input type="text" class="form-control" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || event.charCode === 32"  style="height:100px;font-size:12pt;"  name="name" value="{{row.3}}" required></input>
+						</div>
+
+						<div class="form-group">
+							<label>Designation</label>
+							<input type="text" class="form-control" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || event.charCode === 32"  name="designation" value="{{row.4}}" required>
+						</div>
+						
+						<div class="form-group">
+							<label>Task</label>
+							<input type="text" class="form-control"  name="task" value="{{row.5}}" required>
+						</div>
+						
+						<div class="form-group">
+							<label>Priority</label>
+							<!-- <input type="text" class="form-control" name="priority" value="{{row.6}}"> -->
+							<select class="form-control" name="priority" id="priority" value="{{row.6}}">
+								<option value="Low">Low</option>
+							<option value="Medium">Medium</option>
+							<option value="High">High</option>
+
+							</select>
+							<!-- <input type="text"  name="" > -->
+						</div>
+
+						<div class="form-group">
+							<label>Status</label>
+							<select name="status" class="form-control" id="status">
+							<!-- <input type="text" class="form-control" name="status" value="{{row.7}}"> -->
+							<option value="Completed">Complete</option>
+							<option value="Incomplete">Incomplete</option>
+						</select>
+						</div>
+
+						
+						<div class="form-group">
+							<label>Due date</label>
+							<input type="date" required class="form-control" min="2023-07-26" name="duedate" value="{{row.8}}">
+						</div>
+						<div class="form-group">
+							<label>Team</label>
+							<input type="text" class="form-control" name="team" value="{{row.9}}" >
+						</div>
+					</div>
+	</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+						<input type="submit" class="btn btn-info" value="Save">
+					</div>
+				</form>
+	</div>
+    </div>
+	</div>
+<!-- ef     -->
+{% endfor %}
+
+</tbody>
+
+</table>
+
+
+
+	<div id="addprojectModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form action="{{url_for('insertproject')}}" method="post">
+					<div class="modal-header">	
+
+						<h4 class="modal-title">Create New Project</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">					
+						<div class="form-group">
+							<label>Project Name</label>
+
+							<input type="text" class="form-control" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || event.charCode === 32"  name="projectname" required>
+						</div>
+						
+						<div class="form-group">
+							<label>Your Name</label>
+							<textarea type="text" class="form-control"  onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || event.charCode === 32"  name="name" required></textarea>
+						</div>
+
+						<div class="form-group">
+							<label>Designation</label>
+							<input type="text" class="form-control" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || event.charCode === 32"  name="designation" required>
+						</div>
+
+						<div class="form-group">
+							<label>Tasks</label>
+							<input type="text" class="form-control" name="task" required>
+						</div>
+					
+						<div class="form-group">
+							<label>Priority</label>
+							<select class="form-control" name="priority" id="priority">
+								<option value="Low">Low</option>
+								<option selected value="Medium">Medium</option>
+								<option value="High">High</option>
+							</select>
+							<!-- <input type="text" class="form-control" name="priority"> -->
+						</div>
+
+						<div class="form-group">
+							<label>Status</label>
+							<select class="form-control" name="status" id="status" required>
+								<option value="Ongoing"> Started </option>
+								<option value="Completed"> Completed </option>
+							</select>
+							<!-- <input type="text" class="form-control" name="status"> -->
+						</div>
+                        
+						<div class="form-group">
+							<label>Due Date</label>
+							<input type="date" class="form-control" min="2023-07-26" name="duedate" required>
+						</div>
+
+                        <div class="form-group">
+		
+							<label>Team</label>
+							<input type="text" class="form-control" name="team">
+						</div>
+
+					<div class="form-group"> 
+						<input type="hidden" name="projectid" >
+						<input type="hidden" name="id" >
+
+<input type="hidden" name="action" value="edit">
+
+					</div>
+	
+				
+					<div class="modal-footer">
+						
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+						<input type="submit" class="btn btn-success" value="Add">
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
+
+
+<!-- {%with messages = get_flashed_messages()%}
+
+			{%if messages%}
+			
+			{% for message in messages %}
+			
+			<div class="alert alert-success alert-dismissable" role="alert">
+			 <button type="button" class="close" data-dismiss="alert" aria-label ="close">
+			 <span aria-hidden="true">&times;</span>
+			</button>
+			{{message}}
+			
+			
+				</div>
+			
+			
+				{%endfor%}
+				{%endif%}
+				{%endwith%} -->

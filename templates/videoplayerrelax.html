@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Timer Example</title>
+</head>
+<body>
+  <video id="myVideo" width="320" height="240" controls>
+    <source id="videoSource" src="" type="video/mp4">
+  </video>
+
+  <script>
+    // Set the desired video duration in seconds
+    var desiredDuration = 20;
+
+    // Get the video element and the video source element
+    var video = document.getElementById("myVideo");
+    var videoSource = document.getElementById("videoSource");
+
+    // Set the source URL using the placeholders
+    var host = "{{ host }}";
+    var port = "{{ port }}";
+    var videoFilename = "{{ video }}";
+    videoSource.src = "http://" + host + ":" + port + "{{url_for('videor')}}?filename=" + videoFilename;
+
+    // Play the video
+    video.play();
+
+    // Add an event listener to track the current time of the video
+    video.addEventListener("timeupdate", function() {
+      // Check if the current time is greater than or equal to the desired duration
+      if (video.currentTime >= desiredDuration) {
+        // Pause the video
+        video.pause();
+      }
+    });
+
+    // Add an event listener to restart the video when it ends
+    video.addEventListener("ended", function() {
+      // Reset the video to the beginning
+      video.currentTime = 0;
+
+      // Play the video again
+      video.play();
+    });
+  </script>
+</body>
+</html>

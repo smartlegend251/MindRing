@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="..//static/css/notestyle2.css">
+  
+<title>Update Work notes</title>
+<style>
+hr.lino{
+  /* border: 2px line rgb(0, 0, 0) */
+  border:  2px solid #865DFF;
+  border-radius: 1px;
+  width: max-content;
+}
+
+
+</style>
+</head>
+<body>
+  <header>
+    <h1 class="title" style="text-align: center;">Update Your Notes</h1>
+  </header>
+
+  <!-- Journal Entry Section -->
+  <section class="section journal-section">
+    {% for row in pernotes %}
+
+
+
+    
+    <div class="container" id="modalupdatepernote">
+      <div class="container-row container-row-journal">
+        <div class="container-item container-item-journal">
+<form id="" action="" method="post">
+      <input type="hidden"  name="pernoteid" value="{{row.0}}">
+      <input type="hidden"  name="id" value="{{row.1}}">
+    <label for="entry" class="journal-label">Note</label>
+            <input
+            type="text"
+              name="pernotecon"
+              id="pernotecon"
+              value="{{row.2}}"
+              class="text-box"
+            ></input>
+        <button type="submit" class="button-18" role="button" >Update</button>
+        <br>
+        <hr class="lino"><br>
+            <!-- <button class="btn-main entry-submit-btn" type="submit">Update</button> -->
+          </form>
+        </div>
+  
+  {% endfor %}
+
+</div>
+<script src="../static/js/journal.js"></script>
+</body>
+</html>

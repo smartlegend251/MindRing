@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="../static/css/journal.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+      integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
+      crossorigin="anonymous"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  
+    <title>My Diary App</title>
+    <style>
+      .body {
+
+        background-size: cover;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+        
+      .button {
+  background-color:#0a2472;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: white;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;  
+  margin-left: -3%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  font-family: sans-serif;
+
+  /* rgb(11, 170, 243) */
+/* background-image: linear-gradient(rgb(140, 42, 231), rgba(156, 31, 214, 0.9)); */
+/* background-image: url(../static/images/desk-workspace-with-various-elements.jpg); */
+  background-color:#0a2472;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-top: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fffbfb;
+  display: block;
+
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+ul{
+  list-style: none;
+}
+.main {
+  margin-left: 100px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 1px;
+  
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+  </head>
+  <body>
+    <header><h2 class="title">My Personal Journal</h2></header>
+
+    <!-- Journal Entry Section -->
+    <section class="section journal-section">
+      <div class="container">
+        <div class="container-row container-row-journal">
+          <div class="container-item container-item-journal">
+
+            <form id="" action="{{url_for('insertjournal')}}" method="post">
+              <label for="entry-title" class="journal-label">Entry Title</label>
+              <input
+                type="text"
+                name="entrytitle"
+                id="entrytitle"
+                class="entry-text-title"
+                placeholder="Name of entry ✏️"
+              />
+              <label for="entry-date" class="journal-label">Date</label>
+              <input
+                type="date"
+                name="entrydate"
+                id="entry-date"
+                class="entry-text-title"
+                placeholder="Select date"
+              />
+              <label for="entry" class="journal-label">Today's Entry</label>
+              <textarea
+                name="dailyentry"
+                id="dailyentry"
+                class="entry-text-box"
+                placeholder="What's on your mind today? 💭"
+              ></textarea>
+              <button class="btn-main entry-submit-btn" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div> 
+    </section>
+
+    <!-- Journal Entry Results -->
+    <section class="section sectionEntryResults" id="entryResultsSection">
+      <div class="container">
+        {% for row in journal %}
+      <div class="container-box">
+        
+        <div class="title-box">
+          <h4>{{row.2}}:</h4>
+          <p class="date">{{row.3}}</p>
+        </div>
+        <div class="content-box"><br>
+          <p>{{row.4}}</p>
+   </div>
+        
+      </div>
+      <div >
+        <a href="/updatejournal/{{row.0}}" class="button">Edit</a><br>
+            <a href="/deletejournal/{{row.0}}" class="button">Delete</a><br>
+              </div>
+            {% endfor %}
+    </div>
+
+    <div class="items">
+      <div class="sidenav">
+      <nav>
+        <div class="sidebar">
+          <div class="sidebar-content">
+            <ul class="lists">
+              <li class="list">
+                <a href="#" class="nav-link">
+                  <i class="bx bx-home-alt icon"></i>
+                  <span class="link" style="font-size: larger;">MindRing</span>
+<hr>
+                </a>
+              </li>
+              <br>
+              <li class="list">
+                <a href="/homepage#personalspace" class="nav-link">
+                  <i class="bx bx-home-alt icon"></i>
+                  <span class="link">Personal Space</span>
+                </a>
+              </li>
+              
+              <li class="list">
+                <a href="/todo" class="nav-link">
+                  <i class="bx bx-bar-chart-alt-2 icon"></i>
+                  <span class="link">To-Do List</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="/pernote" class="nav-link">
+                  <i class="bx bx-bell icon"></i>
+                  <span class="link">Notes</span>
+                </a>
+              </li>
+              <hr>
+              <li class="list">
+                <a href="/homepage#professionalspace" class="nav-link">
+                  <i class="bx bx-bell icon"></i>
+                  <span class="link">Professional Space</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="/homepage#healthspace" class="nav-link">
+                  <i class="bx bx-bell icon"></i>
+                  <span class="link">Health Space</span>
+                </a>
+              </li>
+              <br><br><br><br><br><br>          
+              <hr>
+<div class="bottom-cotent">
+              <li class="list">
+                <a href="/logout" class="nav-link">
+                  <i class="bx bx-log-out icon"></i>
+                  <span class="link">Logout</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="/feedback" class="nav-link">
+                  <i class="bx bx-log-out icon"></i>
+                  <span class="link">Feedback</span>
+                </a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </nav>
+      </div>
+    </section>
+</div>
+    <script src="../static/js/journal.js"></script>
+  </body>
+</html>

@@ -1,0 +1,434 @@
+
+body{
+  margin: 0;
+  padding: 0;
+/* 
+  background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v996-008-kroiqtdh.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=96026b35e406acc8c3517293d0a1685e); */
+  background-color: #fff;
+  color: #333;
+}
+.theme{
+  margin-top: 5px;
+   margin-right: 7px;
+   text-decoration: none; 
+  background: none;
+   border: none; 
+  font-size: large; 
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+nav {
+    background-color: rgb(29, 1, 29);
+    /* color: white; */
+    font-size: 18px;
+    padding: 10px;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    z-index: 999;
+
+  
+  }
+  .description{
+    cursor: pointer; text-align: center ; margin-left: -100px;
+  }
+  .dark-mode {
+
+    background-image: url(https://edge.mwallpapers.com/photos/celebrities/hd-wallpapers/abstract-dark-texture-android-iphone-hd-wallpaper-background-downloadhd-wallpapers-desktop-background-android-iphone-1080p-4k-txv7c.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: fixed;
+    background-size: 100vh;
+    background-color: black;
+    color: #fff;
+  }
+
+  .imgdiv{
+    text-align: center;
+    margin-left: 522px;
+  }
+  .img{
+    /* align: center; */
+    height: 200px;
+    
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  ul {
+    text-align: right;
+    list-style-type: decimal;
+    margin: 0;
+    padding: 0;
+    /* justify-content: ; */
+    
+  }
+  
+  li {
+    display: inline-block;
+    margin-right: 80px;
+    
+    
+  }
+  
+  .activenav {
+    font-weight: bold;
+  }
+  div {
+    display: inline-block;
+    width: 300px;
+    
+    /* margin: 10px; */
+    vertical-align: top;
+  }
+  .video_container{
+    height: 1266px;
+    width: 1000px;
+    /* margin-left: 190px;
+    margin-top: 50px; */
+  }
+
+  #anc{
+    color: #000000;
+  }
+  .menu {
+    position: fixed;
+    top: 35px;
+    left: -300px;
+    width: 150px;
+    height: 100%;
+    background-color: rgb(49, 2, 49);
+    transition: left 0.3s ease-in-out;
+  }
+  
+  .menu.open {
+    left: -15px;
+  }
+  .menu ul li{
+    text-align: center;
+  }
+  .toggle-btn {
+    width: 50px;
+    position: fixed;
+    top: 0px; 
+    left: 10px;
+    font-size: 20px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .toggle-btn1 {
+    margin-left: 25px;
+    position: fixed;
+    top: 0px;
+    left: 90px;
+    width: 50px;
+    height: 40px;
+    /* font-size: 20px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer; */
+  }
+  
+  .ul {
+    margin-top: 50px;
+    padding: 0;
+    list-style: none;
+    margin-left: 100%;
+  }
+  
+  .li {
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-bottom: 30px;
+    /* margin-left: -3  px; */
+  }
+  
+  a {
+    /* display: block; */
+    padding: 10px;
+    color:  rgb(124, 117, 117);
+    text-decoration: none;
+    
+
+  }
+  li:hover{
+    background-color: rgb(29, 1, 29);
+    color: #eeeeee;
+  }
+.butn{
+  background: none;
+  border: none;
+  color: rgb(124, 117, 117);
+  cursor: pointer;
+  font-size: medium;
+}
+
+
+  .butn:hover{
+    background: rgb(29, 1, 29);
+    color: #ffffff;
+  }
+
+  .a,.li,.butn{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .a:hover {
+    /* background-color: #04a111; */
+    color: #ffffff;
+  }
+  
+  @media (max-width: 1200px) {
+    div {
+      width: calc(25% - -55px);
+    }
+    .sidenav{
+     
+      right: 87%;
+    }
+  }
+  
+  @media (max-width: 1080px) {
+    video{
+      width: 200px;
+    }
+   /* .video_container{
+
+   } */
+  }
+
+
+
+  @media (max-width: 992px) {
+    div {
+      width: calc(41.33% - -15px);
+    }
+    .sidenav{
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    div {
+      width: calc(50% - 38px);
+    }
+    .sidenav{
+      display: none;
+  
+    }
+    video{
+      width: 400px;
+    }
+    nav {
+      /* width:92%; */
+      width: calc(50% - -580px);
+    }
+  }
+
+
+  .video-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* .video-block { */
+    /* flex: 0 0 calc(33.33% - 20px); */
+    /* margin: 10px; */
+    /* box-sizing: border-box; */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+  /* } */
+  
+  .video-block video {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+  
+  }
+  
+  
+  .video-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .video-block {
+    flex: 0 0 calc(33.33% - 20px);
+    /* margin: 10px; */
+    box-sizing: border-box;
+    display: flex;
+  }
+  
+  @media screen and (max-width: 615px) {
+    .video-block {
+      /* flex-basis: calc(50% - 20px); */
+    
+    display: block;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .video-block {
+      flex-basis: 100%;
+    }
+  }
+  
+  /* .video-block video {
+    width: 100%;
+    height: auto;
+  } */
+  
+
+
+
+
+
+  @media (max-width: 692px) {
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      /* background-color: black;
+
+      color: white; */
+      background-color: #fff;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .dark-mode {
+
+      background-image: url(https://edge.mwallpapers.com/photos/celebrities/hd-wallpapers/abstract-dark-texture-android-iphone-hd-wallpaper-background-downloadhd-wallpapers-desktop-background-android-iphone-1080p-4k-txv7c.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* background-color: #000000; */
+      color: #fff;
+    }
+    .toggle-btn1 {
+      position: fixed;
+      top: 5px;
+      left: 35px;
+      width: 40px;
+      height: 45px;
+    }
+    body {
+      overflow-y: auto;
+    }
+    
+  .imgdiv{
+    text-align: center;
+    margin-left: -5px;
+  }
+  .img{
+    /* align: center; */
+    height: 200px;
+    
+    max-width: 100%;
+    max-height: 100%;
+  }
+    div {
+      width: calc(41.33% - -38px);
+    }
+    .sidenav {
+      display: none;
+      width: 79px;
+      left: 0;
+      margin-left: 0px;
+    }
+    div video {
+      width: 400px;
+      height: auto;
+    }
+    .video_container {
+      /* margin-left: -10px; */
+    }
+    .menu {
+      position: fixed;
+      top: 44px;
+      left: -300px;
+      width: 120px;
+      height: 100%;
+      background-color: #33333380;
+      transition: left 0.3s ease-in-out;
+      z-index: 999;
+    }
+    .menu.open {
+      left: -20px;
+    }
+    .toggle-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 20px;
+      color: #fff;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    
+    }
+    .toggle-btn1{
+      margin-left: 25px;
+    }
+    .uli {
+      margin-top: 50px;
+      padding: 0;
+      list-style: none;
+      display: block;
+    }
+    li{
+      margin-right: 10px;
+    }
+    .li {
+      margin: 0;
+      padding: 0;
+    }
+    .a {
+      display: block;
+      padding: 10px;
+      font-size: large;
+      color: #fff;
+      text-decoration: none;
+
+    }
+    .a:hover {
+      background-color: #555;
+    }
+    a{
+      font-size: xx-small;
+      /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif  ;
+     */
+    }
+    nav {
+      margin: 0;
+      justify-content: space-between;
+      width: 45vh;
+      height: 4vh;
+      z-index: 999;
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    
+  }
+  
+  
+  @media (max-width: 576px) {
+    div {
+      width: calc(100% - -15px);
+    }
+    video {
+      width: 600px ;
+    }
+  }

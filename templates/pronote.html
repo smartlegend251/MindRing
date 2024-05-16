@@ -1,0 +1,324 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/pronotestyle.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+        background-color: rgb(249, 240, 255);
+      }
+      
+      .edit {
+        color: #3df110;
+    }
+      .delete {
+        color: #ff0505;
+    }
+      .sidenav {
+        height: 100%;
+        width: 230px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+  margin-left: 0%;
+
+  /* background-image: linear-gradient(rgb(140, 42, 231), rgba(156, 31, 214, 0.9)); */
+
+        background-color: rgb(25, 1, 46);
+          background-color: #00c469;
+        overflow-x: hidden;
+        overflow-y: hiddens;
+        padding-top: 20px;
+      }
+      
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #ffffff;
+        display: block;
+      }
+      
+      .sidenav a:hover {
+        color: #f1f1f1;
+      } 
+      
+      .main {
+        margin-left: 160px;         /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+      }
+      
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
+      </style>
+  </head>
+  <body>
+
+
+    
+      <div class="top-heading"><h4>  
+            <!-- <a href="/home" ><button style="background-color: rgb(255, 253, 253); color: rgb(0, 0, 0); border: none; padding: 11px; float: left; border-radius: 30%; cursor: pointer; ">
+              Go back</button></a> -->
+        Work Notes</h4></div>
+
+      <div id="addnoteModal" class="modal fade">
+
+      <div class="modal-dialog">
+
+          <div class="modal-content">
+
+
+                  <div class="modal-header">
+
+                      <div class="popup-container-closed">
+                        <div class="form-style" >
+      <form action="{{url_for('insertpronote')}}" method="post">
+      
+      <div>
+         <br><br><label for="pronotehead" style="font-size: x-large;">Title</label>
+          <textarea style="font-family: sans-serif; font-size: x-large;" cols="60" rows="3" name="pronotehead"  id= "pronotehead"  placeholder="Enter your Title" required></textarea>
+      </div>
+      <br>
+      <div>
+          <label for="pronotecon" style="font-size: x-large;">Content</label>
+          <textarea style="font-family: sans-serif; font-size: x-large;" cols="60" rows="7" name="pronotecon"  id= "pronotecon"  placeholder="Enter Content here" required></textarea>
+        </div>
+        <br>
+      <div>    
+        <label for="color" style="font-size: x-large; margin: 29px;">Note Type</label>  
+        <!-- <button onclick="setColor()">Set Color</button>     -->
+          <select  name="val" id="color" style="padding: 7px; padding-left: 50px;" style="cursor: pointer;">
+
+<option style="background-color: rgb(175, 167, 167); color: rgb(17, 3, 3);padding: 8px; cursor: pointer; "value="101">Default</option>    
+<option style="background-color: #ffdddd;color: rgb(8, 6, 6);padding: 7px; cursor: pointer; "value="0">Important</option>
+<option style="background-color: #ddffdd; cursor: pointer; padding: 7px;"value="1">Meeting</option>
+<!-- <option style="  background-color: #e7f3fe; color: rgb(0, 0, 0);padding: 7px;cursor: pointer; "value="2">Meeting</option> -->
+<!-- <option style="background-color: rgb(109, 109, 245); color: white;padding: 7px;cursor: pointer; "value="3">Blue</option> -->
+     <!-- <option style="background-color: rgb(224, 52, 80); color: rgb(83, 71, 71);cursor: pointer; padding: 7px;"value="4">Pink (Loved once)</option> -->
+     <!-- <option style="background-color: black; color: white;padding: 7px;cursor: pointer; "value="5">Black (Incident)</option> -->
+     <!-- <option style="background-color: grey; color: white;padding: 7px;cursor: pointer; "value="6">Grey (task)</option> -->
+  
+    </select>
+      </div>
+      <!-- <input type="list " name="color_id" id="color_id" value="1"> -->
+      <!-- <input type="submit" value="Save Color"> -->
+      <input type="hidden" name="pronoteid" >
+      <input type="hidden" name="id" >
+
+      <div class="addNoteBtn" style="margin-left: 90px;"><button style="cursor: pointer;">Add Note</button></div>
+      
+  </form>
+
+      <div class="closeBtn"  style="margin-left: 90px;" ><button style="cursor: pointer;">Close</button></div>
+
+  </div>
+  </div>
+</div>
+</div>  
+  
+  <div class="container"> 
+    
+    
+      <div class="items">
+        <div class="sidenav">
+        <nav>
+          <div class="sidebar">
+            <div class="sidebar-content">
+              <ul class="lists">
+                <li class="list">
+                  <a href="#" class="nav-link">
+                    <i class="bx bx-home-alt icon"></i>
+                    <span class="link" style="font-size: larger;">MindRing</span>
+                    <br><br>
+                    <span class="link" style="font-size: larger;"></span>
+                  </a>
+                </li>
+                <br>
+                <li class="list">
+                  <a href="/homepage" class="nav-link">
+                    <i class="bx bx-home-alt icon"></i>
+                    <span class="link">Home</span>
+                  </a>
+                </li>
+                <!-- <hr>
+                <li class="list">
+                  <a href="/todo" class="nav-link">
+                    <i class="bx bx-bar-chart-alt-2 icon"></i>
+                    <span class="link">To-Do List</span>
+                  </a>
+                </li>
+                <!-- <hr> -->
+                <br>
+                <li class="list">
+                  <a href="/project" class="nav-link">
+                    <i class="bx bx-bell icon"></i>
+                    <span class="link">Project</span>
+                  </a>
+                </li>
+                <hr>
+                <br>
+                <br>
+                <li class="list">
+                  <a href="/homepage#professionalspace" class="nav-link">
+                    <i class="bx bx-bell icon"></i>
+                    <span class="link">Personal Space</span>
+                  </a><br>
+                </li><li class="list">
+                  <a href="/homepage#healthspace" class="nav-link">
+                    <i class="bx bx-bell icon"></i>
+                    <span class="link">Health Space</span>
+                  </a><br>
+                </li>
+
+<br><br><br><br><br><br><br><hr>             
+                <div class="bottom-cotent">
+                
+                <li class="list">
+                  <a href="/logout" class="nav-link">
+                    <i class="bx bx-log-out icon"></i>
+                    <span class="link">Logout</span>
+                  </a><br>
+                  <a href="/feedback" class="nav-link">
+                    <i class="bx bx-log-out icon"></i>
+                    <span class="link">Feedback</span>
+                  </a>
+                </li>
+              </div>
+            </div>
+          </div>
+        </nav>
+        </div>
+
+        <div class="new-button">
+          <button><ion-icon class="newBtn" name="add-outline"></ion-icon>
+            <br><br><br>
+            <h1>Add Note</h1>
+            </button>
+      </div>
+
+      <div class='pronotes' >
+          {% for row in pronotes %} <br>
+          <div class="sticky-note" id="myDiv" 
+           {% if row.4 == 0 %} style="background-color: #ffdddd; border-left: 10px solid #f44336; "{% endif %} 
+           {% if row.4 == 1 %} style= "background-color: #ddffdd; border-left: 10px solid #02fa9f;" {% endif %} 
+           {% if row.4 == 2 %} style="background-color: #e7f3fe; border-left: 10x solid #2196F3;"    {% endif %}
+           {% if row.4 == 3 %} style="background-color: #ffffcc; border-left: 10px solid #ffeb3b" {% endif %}
+           {% if row.4 == 6 %} style="background-color:grey"    {% endif %}
+          {% if row.4 == 5 %} style="background-color:black; color:white"    {% endif %}
+          {% if row.4 == 101 %} style="background-color: white; color:black"    {% endif %} 
+      
+          >
+          
+          <!-- <ul>
+        
+          <li style="width: fit-content; font-size: x-large;">{{row.2}}</li>
+          <li style="font-size: larger;">{{row.3}}</li>
+
+        
+
+          </ul> -->
+
+          <p><strong>{{row.2}}:</strong><br>
+            <br>{{row.3}}</p>
+
+      <br>
+      <!-- <a href="/updatepronote/{{row.0}}" ><i class="fa fa-edit" style="font-size:20px; color:#000000"></i></a>
+      <a href="/deletepronote/{{row.0}}" ><i class="fa fa-trash-o" style="font-size:20px; color: #080508"></i></a> -->
+    <!-- HTML !-->
+<!-- <a href = "/updatepronote/{{row.0}}"<button class="button-34" role="button">Edit</button></a> -->
+
+<a href="/updatepronote/{{row.0}}" class="edit" data-toggle="modal" data-target="#modaleditpronote{{row.0}}"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+      <a href="/deletepronote/{{row.0}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete" onclick="return confirm('Are you sure to Delete?')">&#xE872;</i></a>
+    
+    </div>  
+       {% endfor %}
+
+
+      </div>
+
+
+    
+
+
+
+<script>
+      const stickyNote = document.querySelector('.sticky-note');
+// s
+function changeColor(color) {
+stickyNote.style.background = color;
+}
+// const deleteBtn = document.querySelector('#delete-btn');
+
+// deleteBtn.addEventListener('click', function(){
+//     if(confirm("Are you sure you want to delete this item?")){
+//         alert("Item deleted");
+//     }
+//     else
+//      {alert("Item not deleted");}
+// });
+//     function changeColor() {
+//   var div = document.getElementById("myDiv");
+//   var color = div.style.backgroundColor;
+//   var color_id = document.getElementById("color");
+//   if (color === "white") {
+//     div.style.backgroundColor = "red";
+//     color_id.value = "2";
+//   } else {
+//     div.style.backgroundColor = "white";
+//     color_id.value = "1";
+//   }
+// }
+
+function setColor() {
+  var color = $("#colorInput").val();
+  $("#stickyNote").css("background-color", color);
+}
+  </script>
+
+
+
+  </div>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="../static/js/pronote.js"></script>
+  
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- null -->
+<!-- <a href="/deletepernote/{" ><button class='delBtn' onclick="return confirm('Are you sure to Delete?')"  id="delete-btn"><ion-icon name="trash-outline"></ion-icon></button></a> -->

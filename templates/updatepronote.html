@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="..//static/css/notestyle.css">
+  
+<title>Document</title>
+<style>
+hr.lino{
+  /* border: 2px line rgb(0, 0, 0) */
+  border:  2px solid #dd344a;
+  border-radius: 1px;
+  width: max-content;
+}
+
+
+</style>
+</head>
+<body>
+  <header>
+    <h1 class="title" style="text-align: center;">Update Work notes</h1>
+  </header>
+
+  <!-- Journal Entry Section -->
+  <section class="section journal-section">
+    {% for row in pronotes %}
+
+
+
+    
+    <div class="container" id="modalupdatepronote">
+      
+
+      
+      <div class="container-row container-row-journal">
+       
+        <div class="container-item container-item-journal">
+
+          
+       
+          <form id="" action="" method="post">
+            <label for="entry-title" class="journal-label">Title</label>
+      <input type="hidden"  name="pronoteid" value="{{row.0}}">
+      <input type="hidden"  name="id" value="{{row.1}}">
+            <input
+              type="text"
+              name="pronotehead"
+              id="pronotehead"
+              value="{{row.2}}"
+              class="entry-text-title"
+              placeholder=""
+            />
+            <label for="entry" class="journal-label">Content</label>
+            <input
+            type="text"
+              name="pronotecon"
+              id="pronotecon"
+              value="{{row.3}}"
+              class="text-box"
+            ></input>
+        <button type="submit" class="button-18" role="button" >Update</button>
+        <br>
+        <hr class="lino"><br>
+            <!-- <button class="btn-main entry-submit-btn" type="submit">Update</button> -->
+          </form>
+        </div>
+  
+  {% endfor %}
+
+</div>
+<script src="../static/js/journal.js"></script>
+</body>
+</html>

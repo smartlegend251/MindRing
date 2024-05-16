@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../static/js/admin.js"></script>
+    <title>Admin Feedback Panel</title>
+<style>
+  .button9 {
+  background-color: rgb(226, 7, 98);
+  border: none;
+  color: rgb(245, 242, 247);
+  padding: 5px 5px;
+  text-decoration: white;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+margin-left: 90%;
+  cursor: pointer;
+  /* text-decoration:  */
+}
+.button10 {
+  background-color: rgb(5, 49, 245);
+  border: none;
+  color: rgb(245, 242, 247);
+  padding: 5px 5px;
+  text-decoration: white;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  margin-left: 90%;
+  position: relative;
+  cursor: pointer;
+  /* text-decoration:  */
+
+}</style>
+
+
+</head>
+<body>
+        <div class="row">
+            
+          <div class="col-12">
+            <h1 style="text-align:center; background-color: rgb(5, 49, 245); font-size: xx-large; padding: 1px; color: white;"><br>MindRing Admin
+              <br>Feedback Panel
+        <div>
+          <a href="/adminpanel" class="button9">Click to view User's</a>
+          <div >
+            <a href="/" class="button10">Logout</a>
+              </div>       
+            </div>
+      </h1>
+        
+          {%with messages = get_flashed_messages()%}
+       
+          {%if messages%}
+        
+        <form action="" method="post">
+          {% for message in messages %}
+        
+          <div class="alert alert-success alert-dismissable" role="alert">
+        
+           <button type="button" class="close" data-dismiss="alert" onclick="cancelAnimationFrame" aria-label ="close">
+        
+               <span aria-hidden="true">&times;</span>
+        
+           </button>
+              {{message}}
+        
+        
+          </div>
+        
+        
+          {%endfor%}
+          {%endif%}
+          {%endwith%}
+        <div class="center">
+                    <table class="table table-wrapper" style="table-layout: auto; background:border-box; border-color: rgb(87, 6, 141);">
+                      <thead style="background-color: rgb(5, 49, 245);">
+                        <tr>
+                          <th scope="col" style="color: white; font-size: larger;">Email</th>
+                          <th scope="col" style="color: white; font-size: larger;">Message</th>
+                        </tr>
+                                {% for row in feedback %}
+        
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">{{row.2}}</th>
+                          <td>{{row.3}}</td>
+                          <!-- <td>{{row.2}} -->
+                          
+                        </tr>
+            {% endfor %}
+        </tbody>
+                    </table>
+                </form>  
+                </div>
+                </div>
+                </div>
+              </div>
+              </div>
+            </body>
+            </html>
+</body>
+</html>

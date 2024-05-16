@@ -1,0 +1,58 @@
+.video{
+    height: 160px;
+     width: 300px;
+     
+}
+
+.hr{
+    display: none;
+}
+
+.divc{
+    margin-right: 30px;
+}
+.topdiv{
+    margin: 50px 0px; 
+    width: 100%;
+    color: rgb(255, 247, 247);
+    background-color: rgba(0, 0, 0, 0.534);
+    margin-top: 6px;
+    margin-bottom: 70px;
+
+    
+}
+.toph2{
+    text-align: center;
+}
+
+@media (max-width: 692px) 
+{
+
+    .topdiv{
+        margin: 50px 0px; 
+        width: 100%;
+        color: rgb(255, 247, 247);
+        background-color: rgba(9, 65, 87, 0.534);
+        margin-top: 30px;
+    }
+    .toph2{
+        text-align: center;
+    }
+
+
+
+    .video{
+        height: 250px; 
+        width: 386px; 
+        margin-left: -17px;
+    }
+
+    .hr{
+        display: block;
+        width: 392px ;
+        margin-left: 3px;
+        /* margin-right: 78px; */
+
+
+    }
+}

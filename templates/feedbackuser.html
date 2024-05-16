@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="../static/css/feedback.css">
+</head>
+<body style="background-color: rgb(153, 16, 233);">
+
+    <div id="feedback-popup">
+      <h1 style="text-align:center; font-family:sans-serif; color: rgb(94, 92, 92);">._MindRing_.</h1>
+        <h2 class="feedback-head" style="color: rgb(90, 87, 86); font-size: medium;">Please leave your valuable Feedback:)</h2>
+        <form action="/feedback" method="post" id="feedback-form">
+          <label class="feedback-emailhead" for="email">Email:</label>
+          <input class="feedback-email" type="email" id="email" name="email" required>
+          <label class="feedback-messagehead" for="message">Message:</label>
+          <input type="text" id="my-date-time-input" name="date" hidden>
+
+          <textarea class="feedback-message" id="message" name="message" required></textarea>
+          <input class="feedback-submit" onclick="alert('Thankyou')"  type="submit" value="Send">
+        </form>
+        <br>
+        <div >
+        <button class="btnfeedback" id="close-btn" onclick="goBack()">Go Back</button>
+      </div>
+    </div>
+
+      
+    <script>
+        function goBack() {
+          window.history.back();
+        }
+      </script>
+</body>
+</html>

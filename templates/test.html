@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      
+      .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; /* Adjust the gap as per your preference */
+      }
+      
+      .sticky-note {
+        width: 90px;
+        height: 90px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        padding: 10px;
+        box-sizing: border-box;
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+      }
+      
+      .sticky-note.active {
+        z-index: 1;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+        color: white;
+      }
+      
+      .sticky-note.active .note-overlay {
+        visibility: visible;
+        opacity: 1;
+      }
+      
+      .note-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 2;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.3s;
+      }
+      
+      .note-content {
+        width: 400px; /* Adjust the width of the pop-up message */
+        background-color: #f2f2f2;
+        color: black;
+        border-radius: 5px;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow-y: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 90%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="sticky-note" onclick="toggleNoteContent(this)">
+        Note 1 (Click to expand)
+        <div class="note-overlay">
+          <div class="note-content">
+            This is the full text of Note 1.
+          </div>
+        </div>
+      </div>
+      <div class="sticky-note" onclick="toggleNoteContent(this)">
+        Note 2 (Click to expand)
+        <div class="note-overlay">
+          <div class="note-content">
+            This is the full text of Note 2.
+          </div>
+        </div>
+      </div>
+      <div class="sticky-note" onclick="toggleNoteContent(this)">
+        Note 3 (Click to expand)
+        <div class="note-overlay">
+          <div class="note-content">
+            This is the full text of Note 3.
+          </div>
+        </div>
+      </div>
+      <!-- Add more sticky notes as needed -->
+    </div>
+    
+    <script>
+      function toggleNoteContent(note) {
+        note.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>

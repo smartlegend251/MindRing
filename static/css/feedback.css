@@ -1,0 +1,73 @@
+#feedback-popup {
+    /* display: none    ; */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 30px 200px;
+    z-index: 999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#feedback-form {
+    display: flex;
+    flex-direction : column;
+}
+
+#feedback-form label {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.feedback-email{
+    padding: 10px 50px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+}
+
+ .feedback-message{
+    padding: 30px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.feedback-submit{
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.feedback-head{
+    color: black;
+    text-align: center;
+}
+
+.feedback-submit:hover {
+    background-color: #3e8e41;
+}
+
+.btnfeedback{
+    /* background-color: #285563; */
+    background-color: transparent;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    padding: 5px 10px;
+    cursor: pointer;
+    align-items: center;
+    transition: 0.7s;
+    margin-left: 37%;
+}
+
+.btnfeedback:hover {
+    background-color: #2c1552;
+    color: white;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relaxation</title>
+    <link rel="icon" href="/static/symbol/homesymbol.png" sizes="16x16" type="image/png">
+    <link rel="stylesheet" href="/static/css/relaxing.css">
+    <link rel="stylesheet" href="/static/css/homemobile.css">
+  </head>
+<body>
+
+    <nav>
+      <img src="/static/symbol/logosymbol.png" class="toggle-btn1" height="30px" alt="^" >
+        <ul ><li>
+        </li>
+          <li style="margin-left: 30px;"> <button class="toggle-btn">&#9776;</button></li>
+          <!-- <li class="activenav"><a href="/home"><img src="/static/symbol/homesymbol.png " height="20px" alt="^">Home</a></li>
+          <li  class="lio"><a href="/upload">  <img src="/static/symbol/uploadsymbol.png" height="20px" alt="^"> Upload </a></li>
+          <li class="lio"><a href="/myvideos"><img src="/static/symbol/videosymbol.png" height="20px" alt="^">My Videos</a></li> -->
+        </ul>
+      </nav>
+
+      <div class="menu">
+        <ul class="uli" style="margin-top: 50px;">
+          <li class="li"><a class="a" href="/homepage#hero">Home</a></li>
+          <li class="li"><a class="a" href="/homepage#personalspace">Personal Space</a></li>
+          <li class="li"><a class="a" href="/homepage#professionalspace">Professional Space</a></li>
+          <li class="li"><a class="a" href="/homepage#healthspace">Health Space</a></li>
+          <!-- <li class="li"><a class="a" href="#">Health Space</a></li> -->
+          <li class="li" id="theme-btn" style="color: white; cursor: pointer;"> <button class="butn" >Theme</button></li>
+
+          <script>
+            function clickLink() {
+              var link = document.getElementById("myLink");
+              link.click();
+            }
+          </script>
+          
+        </ul>
+      </div>
+
+
+    <div class="topdiv" ><br><h2 class="toph2"></h2> </div>
+
+
+    <div style="display:inline; flex-wrap:wrap; margin-left: 100px;">
+      {% if videos %}
+      
+      {% for video in videos %}
+ 
+
+
+      <div class="divc" style="flex-basis: 10%">
+        <fieldset style="border: 0lvw;">
+
+      <a id="anc"  href="{{ url_for('playingr', videos=video) }}">
+        <div class="video-container">
+        <video style="border-radius: 25%;  "  class="video" src="http://{{ host }}:{{ port }}/videor?filename={{ video }}"  ></video>
+        
+        </div>
+
+
+       
+    </a>
+    <h3 class="description">{{ video  }}</h3>
+
+    <style>
+    
+    /* a h3{
+      color: #000;
+    }
+     */
+    .video-container {
+      width: 150px; /* Adjust the width and height to your desired size */
+      height: 150px;
+      border-radius: 50%; /* This makes the container appear as a circle */
+      overflow: hidden; /* Clips the video within the circular container */
+      position: relative; /* Required for positioning the video element */
+    }
+    
+    .video-container video {
+      width: 100%; /* Ensures the video covers the entire container */
+      height: 100%;
+      object-fit: cover; /* Fills the container while maintaining aspect ratio */
+      position: absolute; /* Positions the video element within the container */
+      top: 0;
+      left: 0;
+    }
+    </style>
+  </fieldset>
+  
+  <hr class="hr" >
+    </div>
+  
+        {% if loop.index % 4 == 0 %}
+          <br>
+        {% endif %}
+      {% endfor %}
+      {% else %}
+      <div class="imgdiv">
+      <img class="img" src="https://cdn.shopify.com/s/files/1/1061/1924/products/12_large.png?v=1571606116"  alt="Emoji">
+    <p>No videos available.</p>
+  </div>
+    {% endif %}
+    </div>
+
+
+
+
+
+
+<script src="/static/js/meditation.js"></script>
+      
+</body>
+</html>
